@@ -151,7 +151,7 @@ function Addtransaction() {
                 <td>2020-01-08</td>
                 <td>Books</td>
                 <td>novels</td>
-                <td>3000</td> 
+                <td>3500</td> 
             </tr>
 
         </tbody>
