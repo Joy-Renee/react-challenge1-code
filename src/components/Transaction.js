@@ -23,9 +23,9 @@ function Addtransaction() {
         };
     
 
-    // Add the new transaction to the list of transactions
+    
     setTransactions([...transactions, newTransaction]);
-    // Clear the form after submission
+   
     addTransact({
         ...formTransact,
         date: "",
