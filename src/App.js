@@ -1,8 +1,9 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Addtransaction from './components/Transaction';
+import Defaultdata from './components/default';
 
-function App() {
+function App({formDefault}) {
   return (
     <div >
       <Addtransaction
@@ -11,6 +12,10 @@ function App() {
       description = {"description"}
       category = {"category"}
       amount = {"amount"}
+      />
+
+      <Defaultdata 
+      formDefault={formDefault}
       />
     </div>
     

@@ -111,11 +111,15 @@ function Addtransaction() {
                             value="Add Transaction" 
                             
                             />
+                           
                     </div>
+                    
                 </div>
 
             </form>
+            
         <div>
+       
         <table>
         <thead>
         <tr>
@@ -128,6 +132,7 @@ function Addtransaction() {
     <tbody>
         {transactions.map((transaction, index) => (
             <tr key={index}>
+                
                 <td>{transaction.date}</td>
                 <td>{transaction.description}</td>
                 <td>{transaction.category}</td>
