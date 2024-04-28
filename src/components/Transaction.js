@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 
+
 function Addtransaction() {
     const [formTransact, addTransact] = useState({
         search: "",
@@ -29,10 +30,11 @@ function Addtransaction() {
     return(
         <div>
             <form onSubmit={handleSubmit}>
-                <h1>The Royal Bank of Flatiron</h1>
+                <h1 id="header">The Royal Bank of Flatiron</h1>
                 <input 
                 type="text"
                 id="search"
+                className="added"
                 value={formTransact.search}
                 placeholder="Search your Recent Transaction"
                 onChange={handleChange}
@@ -41,6 +43,7 @@ function Addtransaction() {
                 <input 
                 type="date"
                 id="date"
+                className="added"
                 value={formTransact.date}
                 placeholder=""
                 onChange={handleChange}
@@ -49,6 +52,7 @@ function Addtransaction() {
                 <input 
                 type="text"
                 id="description"
+                className="added"
                 value={formTransact.description}
                 placeholder="description"
                 onChange={handleChange}
@@ -57,6 +61,7 @@ function Addtransaction() {
                 <input 
                 type="text"
                 id="category"
+                className="added"
                 value={formTransact.category}
                 placeholder="category"
                 onChange={handleChange}
@@ -65,15 +70,18 @@ function Addtransaction() {
                 <input 
                 type="number"
                 id="amount"
+                className="added"
                 value={formTransact.amount}
                 placeholder="Amount"
                 onChange={handleChange}
                 />
-
+                <br></br>
+                <br></br>
                <div>
                <input 
                 type="submit" 
-                id="submit"
+                id="submitt"
+                className="submitt"
                 value="Add Transaction" 
                 
                 />
