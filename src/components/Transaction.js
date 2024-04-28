@@ -115,21 +115,28 @@ function Addtransaction() {
                 </div>
 
             </form>
-
+        <div>
         <table>
-            <div>
-               
-                    {transactions.map((transaction, index) => (
-                        <div key={index}>
-                            <div>Date: {transaction.date}</div>
-                            <div>Description: {transaction.description}</div>
-                            <div>Category: {transaction.category}</div>
-                            <div>Amount: {transaction.amount}</div>
-                        </div>
-                    ))}
-                
-            </div>
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        {transactions.map((transaction, index) => (
+            <tr key={index}>
+                <td>{transaction.date}</td>
+                <td>{transaction.description}</td>
+                <td>{transaction.category}</td>
+                <td>{transaction.amount}</td>
+            </tr>
+        ))}
+    </tbody> 
         </table>
+        </div>
         </div>
     )
 
