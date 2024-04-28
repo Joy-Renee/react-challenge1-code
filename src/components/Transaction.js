@@ -11,6 +11,7 @@ function Addtransaction() {
     })
 
     const [transactions, setTransactions] = useState([]);
+    
 
     function handleSubmit(event) {
         event.preventDefault()
@@ -129,6 +130,32 @@ function Addtransaction() {
             <th>Amount</th>
         </tr>
     </thead>
+
+        <tbody>
+            <tr>
+                <td>2019-07-01</td>
+                <td>Chippole</td>
+                <td>food</td>
+                <td>1000</td>
+
+            </tr>
+
+            <tr>
+                <td>2019-07-02</td>
+                <td>Sunglasses</td>
+                <td>fashion</td>
+                <td>2000</td>
+            </tr>
+
+            <tr>
+                <td>2020-01-08</td>
+                <td>Books</td>
+                <td>novels</td>
+                <td>3000</td> 
+            </tr>
+
+        </tbody>
+
     <tbody>
         {transactions.map((transaction, index) => (
             <tr key={index}>
@@ -140,6 +167,7 @@ function Addtransaction() {
             </tr>
         ))}
     </tbody> 
+    
         </table>
         </div>
         </div>
