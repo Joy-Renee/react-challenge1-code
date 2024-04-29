@@ -1,17 +1,18 @@
 import React, {useState} from "react";
+import Formstable from "./Formstable";
 
 
-function Addtransaction() {
+function Transaction({formList , transactions ,setTransactions}) {
     const [formTransact, addTransact] = useState({
-        search: "",
         date: "",
         description: "",
         category: "",
         amount: ""
     })
 
-    const [transactions, setTransactions] = useState([]);
     
+    
+     
 
     function handleSubmit(event) {
         event.preventDefault()
@@ -24,45 +25,66 @@ function Addtransaction() {
         };
     
 
-    
-    setTransactions([...transactions, newTransaction]);
+    setTransactions([...transactions,newTransaction])
+//  addTransact([...formList, newTransaction]);
    
-    addTransact({
-        ...formTransact,
-        date: "",
-        description: "",
-        category: "",
-        amount: ""
-    });
+    // addTransact({
+    //     ...formTransact,
+    //     date: "",
+    //     description: "",
+    //     category: "",
+    //     amount: ""
+    // });
 
     }
+
+    function handleChanges(event) {
+           addTransact(
+            {
+                ...formTransact,
+                [event.target.id] : event.target.value
+            }
+           )
+        }
+
+    // function handleChange(event) {
+    //     const key = event.target.id
+    //     console.log(key)
+    //      addTransact({
+    //         ...formTransact, 
+    //      [key]: event.target.value
+    //     })
+    // }
 
     function handleChange(event) {
-        const key = event.target.id
-        console.log(key)
-         addTransact({
-            ...formTransact, 
-         [key]: event.target.value
-        })
+        const value = event.target.value.toLowerCase();
+        // console.log(value);
+        const filtered = formList.filter((transaction) =>{
+            return transaction.description.toLowerCase().includes(value)
+        });
+        // console.log(filtered);
+   setTransactions(filtered)
     }
 
-    console.log(formTransact);
-    console.log(addTransact);
+    // console.log(formTransact);
+    // console.log(addTransact);
 
     return(
         <div id="div">
-            <form onSubmit={handleSubmit} id="submited">
                 <h1 id="header">The Royal Bank of Flatiron</h1>
-                <div id="search">
+             <div id="search">
                     <input 
                     type="text"
                     id="search"
                     className=""
-                    value={formTransact.search}
+                    // value={formTransact.search}
                     placeholder="Search your Recent Transaction"
                     onChange={handleChange}
                     />
                 </div>
+            <form onSubmit={handleSubmit} id="submited">
+            
+               
 
                 <br></br>
                 
@@ -73,7 +95,7 @@ function Addtransaction() {
                     className="added"
                     value={formTransact.date}
                     placeholder=""
-                    onChange={handleChange}
+                    onChange={handleChanges}
                     /> 
 
                     <input 
@@ -82,7 +104,7 @@ function Addtransaction() {
                     className="added"
                     value={formTransact.description}
                     placeholder="description"
-                    onChange={handleChange}
+                    onChange={handleChanges}
                     />
 
                     <input 
@@ -91,7 +113,7 @@ function Addtransaction() {
                     className="added"
                     value={formTransact.category}
                     placeholder="category"
-                    onChange={handleChange}
+                    onChange={handleChanges}
                     />
 
                     <input 
@@ -100,7 +122,7 @@ function Addtransaction() {
                     className="added"
                     value={formTransact.amount}
                     placeholder="Amount"
-                    onChange={handleChange}
+                    onChange={handleChanges}
                     />
                     <br></br>
                     <br></br>
@@ -131,8 +153,8 @@ function Addtransaction() {
         </tr>
     </thead>
 
-        <tbody>
-            <tr>
+        {/* <tbody> */}
+            {/* <tr>
                 <td>2019-07-01</td>
                 <td>Chippole</td>
                 <td>food</td>
@@ -152,20 +174,12 @@ function Addtransaction() {
                 <td>Books</td>
                 <td>novels</td>
                 <td>3500</td> 
-            </tr>
+            </tr> */}
 
-        </tbody>
+        {/* </tbody> */}
 
     <tbody>
-        {transactions.map((transaction, index) => (
-            <tr key={index}>
-                
-                <td>{transaction.date}</td>
-                <td>{transaction.description}</td>
-                <td>{transaction.category}</td>
-                <td>{transaction.amount}</td>
-            </tr>
-        ))}
+      <Formstable  formList = {transactions}/>
     </tbody> 
     
         </table>
@@ -178,5 +192,5 @@ function Addtransaction() {
 }
 
 
-export default Addtransaction
+export default Transaction
 
