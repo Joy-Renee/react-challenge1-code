@@ -28,13 +28,12 @@ function Transaction({formList , transactions ,setTransactions}) {
     setTransactions([...transactions,newTransaction])
 //  addTransact([...formList, newTransaction]);
    
-    // addTransact({
-    //     ...formTransact,
-    //     date: "",
-    //     description: "",
-    //     category: "",
-    //     amount: ""
-    // });
+    addTransact({
+        date: "",
+        description: "",
+        category: "",
+        amount: ""
+    });
 
     }
 
@@ -96,6 +95,7 @@ function Transaction({formList , transactions ,setTransactions}) {
                     value={formTransact.date}
                     placeholder=""
                     onChange={handleChanges}
+                    required
                     /> 
 
                     <input 
@@ -105,6 +105,7 @@ function Transaction({formList , transactions ,setTransactions}) {
                     value={formTransact.description}
                     placeholder="description"
                     onChange={handleChanges}
+                    required
                     />
 
                     <input 
@@ -114,6 +115,7 @@ function Transaction({formList , transactions ,setTransactions}) {
                     value={formTransact.category}
                     placeholder="category"
                     onChange={handleChanges}
+                    required
                     />
 
                     <input 
@@ -123,6 +125,7 @@ function Transaction({formList , transactions ,setTransactions}) {
                     value={formTransact.amount}
                     placeholder="Amount"
                     onChange={handleChanges}
+                    required
                     />
                     <br></br>
                     <br></br>
